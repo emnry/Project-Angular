@@ -1,0 +1,53 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+
+  .uk-alert{
+    margin-top: 0.75rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .main-card, .main-container{
+    flex: 1;
+  }
+}
+
+
+.uk-card.uk-card-default.uk-card-body {
+  width: 90%;
+}
+
+.uk-card-hover:hover{
+  box-shadow:0 14px 25px rgba(0,0,0,.075) !important;
+}
+
+html,
+body {
+
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+
+
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.no-text-decoration{
+  text-decoration: none !important;
+}
+
+

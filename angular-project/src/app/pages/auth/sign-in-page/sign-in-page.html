@@ -1,0 +1,46 @@
+<h1 class="uk-text-center" style="font-weight: 500">Login</h1>
+
+<form #form="ngForm" class="form-grid">
+
+  <div>
+  <input class="uk-input " name="email" [(ngModel)]="user.email"
+         #email="ngModel" placeholder="Email *" type="email" required email/>
+
+
+  <div class="uk-alert" style="background: rgba(255,0,0,0.05)"
+       *ngIf="email.invalid && (email.dirty || email.touched)">
+    <div *ngIf="email.errors?.['required']">
+      Email is required.
+    </div>
+    <div *ngIf="email.errors?.['email']">
+      Please enter a valid email.
+    </div>
+  </div>
+  </div>
+  <div>
+  <input class="uk-input " name="password" [(ngModel)]="user.password"
+         #password="ngModel" placeholder="Password *" type="password" required/>
+
+  <div class="uk-alert" style="background: rgba(255,0,0,0.05)"
+       *ngIf="password.invalid && (password.dirty || password.touched)">
+
+    <div *ngIf="password.errors?.['required']">
+      Password is required.
+    </div>
+
+  </div>
+  </div>
+
+  <div class="uk-flex uk-flex-middle uk-margin-small" style="gap: 2rem">
+
+    <button class=" uk-button uk-button-default" [disabled]="form.invalid" (click)="sendFormData()">Sign-in</button>
+
+    <span>{{ error }}</span>
+
+  </div>
+
+</form>
+
+
+<p>Don't have an account yet ? <a [routerLink]="['/register']"> --> Sign up now</a></p>
+<p>Forgot your password ? <a [routerLink]="['/reset-password']"> --> Reset your password</a></p>

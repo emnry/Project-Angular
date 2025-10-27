@@ -1,0 +1,38 @@
+<h1 class="uk-text-center" style="font-weight: 500">Article management</h1>
+
+<div class="uk-container uk-child-width-1-2 uk-grid" style="justify-content: space-evenly">
+
+  @for (article of articles; track article) {
+
+    <div
+      class="uk-card uk-card-hover uk-card-default uk-flex  uk-container uk-flex-column uk-margin-top  uk-flex-center"
+      style=" width: 45%; padding: 1rem">
+
+      <img src="{{article?.imgPath}}">
+
+      <p class="uk-card-title uk-margin-small uk-text-center"
+         style="z-index: 100; font-weight: 500"><b>Title :</b> {{ article.title }}</p>
+
+
+      <div style="font-weight: 500;" class=" uk-card-body uk-margin-small">
+
+        <p><b>Description :</b> {{ article.desc }}</p>
+        <p><b>Author :</b> {{ article.author }}</p>
+
+        <div class="uk-button-group uk-margin-small" style=" width:100%; gap: 5%">
+          <button class="uk-button  uk-button-primary uk-button-medium" [routerLink]="['../edit', article.id ]"><i
+            class="fa-solid fa-file-pen"></i> Edit
+          </button>
+          <button class="uk-button  uk-button-danger uk-button-medium" (click)="onClickDelete(article.id)"><i
+            class="fa-solid fa-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  }
+
+</div>

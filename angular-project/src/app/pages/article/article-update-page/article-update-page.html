@@ -1,0 +1,55 @@
+<h1 *ngIf="id === ''" class="uk-text-center" style="font-weight: 500">
+  Article Creation
+
+</h1>
+<h1 *ngIf="id !== ''" class="uk-text-center" style="font-weight: 500">
+  Article Editing
+
+</h1>
+<form #form="ngForm">
+  <input class="uk-input uk-margin-small" type="text" [(ngModel)]="article.title" placeholder="Article title *"
+         name="title" #title="ngModel" required/>
+
+  <div class="uk-alert uk-margin-remove-top" style="background: rgba(255,0,0,0.05)"
+       *ngIf="title.invalid && (title.dirty || title.touched)">
+    <div *ngIf="title.errors?.['required']">
+      The title is required.
+    </div>
+  </div>
+
+  <input class="uk-input uk-margin-small" type="text" [(ngModel)]="article.desc" placeholder="Description *"
+         name="desc" #desc="ngModel" required/>
+
+  <div class="uk-alert uk-margin-remove-top" style="background: rgba(255,0,0,0.05)"
+       *ngIf="desc.invalid && (desc.dirty || desc.touched)">
+    <div *ngIf="desc.errors?.['required']">
+      The description is required.
+    </div>
+  </div>
+
+  <input class="uk-input uk-margin-small" type="text" [(ngModel)]="article.author" placeholder="Author *"
+         name="author" #author="ngModel" required/>
+
+  <div class="uk-alert uk-margin-remove-top" style="background: rgba(255,0,0,0.05)"
+       *ngIf="author.invalid && (author.dirty || author.touched)">
+    <div *ngIf="author.errors?.['required']">
+      The author name is required.
+    </div>
+  </div>
+
+  <input name="imgPath" class="uk-input uk-margin-small" *ngIf="id === ''" type="text" [(ngModel)]="article.imgPath"
+         placeholder="Image link"/>
+
+  <div class="uk-flex uk-flex-middle uk-margin-small" style="gap: 2rem">
+
+    <button class="uk-button uk-margin-small uk-button-danger" [disabled]="form.invalid" *ngIf="id === ''"
+            (click)="onClickUpdate(article)">Publish
+    </button>
+    <button class="uk-button uk-margin-small uk-button-danger" [disabled]="form.invalid" *ngIf="id !== ''"
+            (click)="onClickUpdate(article)">Save Changes
+    </button>
+
+    <span>{{ error }}</span>
+
+  </div>
+</form>

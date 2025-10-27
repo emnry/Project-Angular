@@ -1,0 +1,23 @@
+<h1 class="uk-text-center" style="font-weight: 500">Articles list</h1>
+
+<div class="uk-container uk-child-width-1-2 uk-grid" style="justify-content: space-evenly">
+
+  @for (article of articles; track article) {
+
+    <div
+      class="uk-card uk-card-hover uk-card-default uk-flex  uk-container uk-flex-column uk-margin-top uk-text-center uk-flex-center"
+      style=" width: 45%; cursor: pointer" [routerLink]="['/article/', article.id ]">
+
+      <img style="margin-bottom: auto" src="{{article?.imgPath}}">
+
+      <p class="uk-card-title uk-card-body"
+         style="margin-top: auto ; z-index: 100; font-weight: 500">{{ article.title }}</p>
+
+    </div>
+
+
+  }
+
+</div>
+
+
