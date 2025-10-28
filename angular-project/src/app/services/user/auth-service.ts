@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   resetPassword(user: any): Observable<any> {
-    return this.http.post(`http://localhost:3000/reset-password`, user.email);
+    return this.http.post(`http://localhost:3000/reset-password`, user);
   }
 
   login(user: any): Observable<any> {
